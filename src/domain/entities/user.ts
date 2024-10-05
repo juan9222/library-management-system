@@ -1,5 +1,9 @@
 export type UserEntity = {
-    // Attributes
+    id: number;
+    name: string;
+    email: string;
+    createdAt: Date;
+    updatedAt: Date;
 }
 
-export type AddUserParams = Omit<UserEntity, 'id'>
+export type AddUserParams = Omit<UserEntity, 'id' | 'createdAt' | 'updatedAt'>;

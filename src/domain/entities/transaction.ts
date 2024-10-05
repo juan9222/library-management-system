@@ -1,5 +1,11 @@
 export type TransactionEntity = {
-    // Attributes
+    id: number;
+    userId: number;
+    bookId: number;
+    borrowDate: Date; 
+    returnDate: Date | null; 
+    createdAt: Date;
+    updatedAt: Date;
 }
 
-export type AddTransactionParams = Omit<TransactionEntity, 'id'>
+export type AddTransactionParams = Omit<TransactionEntity, 'id' | 'createdAt' | 'updatedAt'>;
