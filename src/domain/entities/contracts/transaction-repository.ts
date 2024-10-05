@@ -1,8 +1,9 @@
+import { AddTransactionParams } from '@/domain/entities/transaction';
 export const TRANSACTION_REPOSITORY = 'TRANSACTION_REPOSITORY';
 
 export interface ITransactionRepository {
-    createTransaction(userId: number, bookId: number): Promise<any>;
-    updateReturnDate(transactionId: number): Promise<any>;
-    getBorrowedBooksByUser(userId: number): Promise<any[]>;
-    getBorrowingHistoryByUser(userId: number): Promise<any[]>;
+  createTransaction(transaction: AddTransactionParams): Promise<any>;
+  completeTransaction(userId: number, bookId: number): Promise<void>;
+  getCurrentBorrowedBooks(userId: number): Promise<any>;
+  getBorrowHistory(userId: number): Promise<any>;
 }

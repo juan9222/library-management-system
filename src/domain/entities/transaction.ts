@@ -1,7 +1,7 @@
 export type TransactionEntity = {
     id: number;
     userId: number;
-    bookId: number;
+    bookId: number; 
     borrowDate: Date; 
     returnDate: Date | null; 
     createdAt: Date;
