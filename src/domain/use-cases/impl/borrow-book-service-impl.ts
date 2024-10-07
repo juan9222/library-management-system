@@ -12,20 +12,33 @@ export class BorrowBookServiceImpl implements IBorrowBookService {
   ) {}
 
   async borrowBook(userId: number, bookId: number): Promise<any> {
-    const book = await this.bookRepository.getBookById(bookId);
+    try {
+      const book = await this.bookRepository.getBookById(bookId);
 
-    if (!book || book.status === 'borrowed') {
-      throw new Error('Book is unavailable');
+      if (!book) {
+        console.error(`Book with id ${bookId} not found`);
+        throw new Error('Book not found');
+      }
+
+      if (book.status !== 'available') {
+        console.error(`Book with id ${bookId} is already borrowed`);
+        throw new Error('Book is unavailable');
+      }
+
+      const transaction: AddTransactionParams = {
+        userId,
+        bookId,
+        borrowDate: new Date(),
+        returnDate: null
+      };
+
+      await this.bookRepository.updateBookStatus(bookId, 'borrowed');
+      console.log('Creating transaction:', transaction);
+      return this.transactionRepository.createTransaction(transaction);
+
+    } catch (error) {
+      console.error('Error in borrowBook:', error);
+      throw new Error(error.message || 'Failed to borrow book');
     }
-
-    const transaction: AddTransactionParams = {
-      userId,
-      bookId,
-      borrowDate: new Date(),
-      returnDate: null
-    };
-
-    await this.bookRepository.updateBookStatus(bookId, 'borrowed');
-    return this.transactionRepository.createTransaction(transaction);
   }
 }
