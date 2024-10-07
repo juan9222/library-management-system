@@ -18,7 +18,7 @@ export class BookPgRepositoryAdapter implements IBookRepository {
         return book ? this.toBookEntity(book) : null;
     }
 
-    async updateBookStatus(id: number, status: string): Promise<void> {
+    async updateBookStatus(id: number, status: 'borrowed' | 'available'): Promise<void> {
         const book = await BookModelPg.findByPk(id);
         if (book) {
             book.status = status;
