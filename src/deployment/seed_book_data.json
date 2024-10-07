@@ -3,25 +3,33 @@
       "id": 1,
       "title": "The Great Gatsby",
       "author": "F. Scott Fitzgerald",
-      "status": "available"
+      "status": "available",
+      "createdAt": "2024-08-01",
+      "updatedAt": "2024-08-01"
     },
     {
       "id": 2,
       "title": "1984",
       "author": "George Orwell",
-      "status": "borrowed"
+      "status": "borrowed",
+      "createdAt": "2024-08-01",
+      "updatedAt": "2024-08-01"
     },
     {
       "id": 3,
       "title": "To Kill a Mockingbird",
       "author": "Harper Lee",
-      "status": "available"
+      "status": "available",
+      "createdAt": "2024-08-01",
+      "updatedAt": "2024-08-01"
     },
     {
       "id": 4,
       "title": "Moby Dick",
       "author": "Herman Melville",
-      "status": "available"
+      "status": "available",
+      "createdAt": "2024-08-01",
+      "updatedAt": "2024-08-01"
     }
   ]
   

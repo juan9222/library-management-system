@@ -26,7 +26,6 @@ export class BookPgRepositoryAdapter implements IBookRepository {
         }
     }
 
-    // Helper to map Sequelize model to domain entity
     private toBookEntity(book: BookModelPg): BookEntity {
         return {
             id: book.id,

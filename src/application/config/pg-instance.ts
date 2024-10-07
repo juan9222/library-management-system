@@ -25,7 +25,6 @@ export class PgConfiguration {
       {
         host: CONFIG_PG.host,
         dialect: "postgres",
-        // This array contains all the system models that are used for Pg.
         models: [
           BookModelPg,
           UserModelPg,
