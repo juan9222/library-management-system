@@ -1,7 +1,7 @@
 import { Table, Column, Model, DataType } from 'sequelize-typescript';
 import { BookEntity } from "@/domain/entities/book";
 
-@Table({ tableName: 'books' })
+@Table({ tableName: 'books', timestamps: true  })
 export class BookModelPg extends Model<BookEntity> {
   @Column({ primaryKey: true, autoIncrement: true })
   id!: number;
